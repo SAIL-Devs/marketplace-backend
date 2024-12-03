@@ -24,7 +24,7 @@ const createProduct = async (req, res) => {
     getStore.productUser = getUser;
     getStore.save();
 
-    getUser.store.push(mongoose.Schema.ObjectId(getStore._id));
+    getUser.store.push(new mongoose.Types.ObjectId(getStore._id));
     getUser.save();
 
     res.status(201).json({
